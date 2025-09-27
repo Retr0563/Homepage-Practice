@@ -21,7 +21,7 @@ const Sidebar = () => {
               >
                 <div> {value.title} </div>
                 <div>{value.icon}</div>
-                <div>{value.link}</div>
+                {/* <div>{value.link}</div> */}
               </li>
             );
           })}
