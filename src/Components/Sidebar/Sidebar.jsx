@@ -1,33 +1,40 @@
-// import { useState } from "react";
+import { useState } from "react";
 import Data from "./Data";
 import "./Sidebar.css";
 
 const Sidebar = () => {
-  // const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
+
+  const handleClick = () => {
+    setOpen((prev) => !prev);
+  };
 
   return (
-    <div className="sidebar-container">
-      <button className="side-toggle"> x </button>
+    <>
+      <button className="side-toggle" onClick={handleClick}>
+        {open ? "x" : "☰"}
+      </button>
 
-      <div className="sidebar-links">
-        <ul>
-          {Data.map((value, key) => {
-            return (
-              <li
-                key={key}
-                onClick={() => {
-                  window.location.pathname = value.link;
-                }}
-              >
-                <div> {value.title} </div>
-                <div>{value.icon}</div>
-                {/* <div>{value.link}</div> */}
-              </li>
-            );
-          })}
-        </ul>
+      <div className="sidebar-container">
+        <div className="sidebar-links">
+          <ul>
+            {Data.map((value, key) => {
+              return (
+                <li
+                  key={key}
+                  onClick={() => {
+                    window.location.pathname = value.link;
+                  }}
+                >
+                  <div> {value.title} </div>
+                  <div>{value.icon}</div>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 export default Sidebar;
