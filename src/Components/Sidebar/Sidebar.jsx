@@ -3,7 +3,7 @@ import Data from "./Data";
 import "./Sidebar.css";
 
 const Sidebar = () => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
   const handleClick = () => {
     setOpen((prev) => !prev);
@@ -11,11 +11,11 @@ const Sidebar = () => {
 
   return (
     <>
-      <button className="side-toggle" onClick={handleClick}>
-        {open ? "x" : "☰"}
-      </button>
-
       <div className="sidebar-container">
+        <button className="side-toggle" onClick={handleClick}>
+          {open ? "x" : "☰"}
+        </button>
+
         <div className="sidebar-links">
           <ul>
             {Data.map((value, key) => {
